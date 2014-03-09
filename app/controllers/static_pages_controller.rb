@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  # コメント　　
   def home
   end
 

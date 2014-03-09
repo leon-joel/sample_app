@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/Sites/rails_projects/sample_app",
+			"file_exclude_patterns": ["*.lock", "*.gitignore", "*.secret", "*.ru", "*.keep"]
+		}
+	]
+}
