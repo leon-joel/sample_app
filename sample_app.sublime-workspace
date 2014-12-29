@@ -126,6 +126,14 @@
 				"buffer_size": 670,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "config/environments/production.rb",
+			"settings":
+			{
+				"buffer_size": 3383,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -308,7 +316,6 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
 				{
@@ -405,8 +412,8 @@
 						"selection":
 						[
 							[
-								371,
-								371
+								389,
+								389
 							]
 						],
 						"settings":
@@ -530,6 +537,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "config/environments/production.rb",
+					"settings":
+					{
+						"buffer_size": 3383,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3348,
+								3348
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 828.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
