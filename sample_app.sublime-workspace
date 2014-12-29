@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"pass",
+				"password_confirmation"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"gra",
+				"gravatar_url"
+			],
+			[
+				"mi",
+				"mixed_case_email"
+			],
+			[
+				"it",
+				"it	it \"does something\" do … end"
+			],
+			[
+				"expb",
+				"expbe	expect(obj).to be"
+			],
+			[
+				"user",
+				"user_for_invalid_password"
+			],
+			[
 				"ex",
 				"expbe	expect(obj).to be"
 			],
@@ -16,53 +64,66 @@
 	"buffers":
 	[
 		{
-			"file": "app/models/user.rb",
+			"file": "app/assets/stylesheets/custom.css.scss",
 			"settings":
 			{
-				"buffer_size": 308,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "require 'spec_helper'\n\ndescribe User do\n  before { @user = User.new(name: \"Example User\", email: \"user@example.com\",\n                            password: \"foobar\", password_confirmation: \"foobar\") }\n\n  subject { @user }\n\n  it { should respond_to(:name) }\n  it { should respond_to(:email) }\n  it { should respond_to(:password_digest) }\n  it { should respond_to(:password) }               # DB上には存在しない\n  it { should respond_to(:password_confirmation) }  # 同上\n  it { should respond_to(:authenticate) }\n  \n  it { should be_valid }\n\n  describe \"when name is not present\" do\n    before { @user.name = \" \"}\n    it { should_not be_valid }\n  end\n\n  describe \"when email is not present\" do\n    before { @user.email = \" \"}\n    it { should_not be_valid }\n  end\n\n  describe \"when name is too long\" do\n    before { @user.name = \"a\" * 51 }\n    it { should_not be_valid }\n  end\n\n  describe \"when email format is invalid\" do\n    it \"should be invalid\" do\n      addresses = %w[user@foo,com user_at_foo.org example.user@foo.\n                     foo@bar_baz.com foo@bar+baz.com]\n      addresses.each do |invalid_address|\n        @user.email = invalid_address\n        expect(@user).not_to be_valid\n      end\n    end\n  end\n\n  describe \"when email format is valid\" do\n    it \"should be valid\" do\n      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]\n      addresses.each do |valid_address|\n        @user.email = valid_address\n        expect(@user).to be_valid\n      end\n    end\n  end\n\n  describe \"when email address is already taken\" do\n    before do\n      user_with_same_email = @user.dup\n      user_with_same_email.email = @user.email.upcase\n      user_with_same_email.save\n    end\n\n    it { should_not be_valid }\n  end\n\n  describe \"when password is not present\" do\n    before do\n      @user = User.new(name: \"Example User\", email: \"user@example.com\",\n                       password: \" \", password_confirmation: \" \")\n    end\n    it { expect(subject).not_to be_valid }\n  end\n\n  describe \"return value of authenticate method\" do\n    before { @user.save }\n    let (:found_user) { User.find_by(email: @user.email)}\n\n    describe \"with valid password\" do\n      it { should eq found_user.authenticate(@user.password) }\n    end\n\n    describe \"with invalid password\" do\n      let(:user_for_invalid_password) { found_user.authenticate(\"invalid\")}\n    end\n  end\nend\n",
-			"file": "spec/models/user_spec.rb",
-			"file_size": 1962,
-			"file_write_time": 130398034564291832,
-			"settings":
-			{
-				"buffer_size": 2362,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/nakaue/Desktop/学校スケジュール.txt",
-			"settings":
-			{
-				"buffer_size": 722,
+				"buffer_size": 2318,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Gemfile",
+			"file": "config/routes.rb",
 			"settings":
 			{
-				"buffer_size": 640,
+				"buffer_size": 1948,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "db/schema.rb",
+			"file": "app/views/users/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 1062,
+				"buffer_size": 204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/users_controller.rb",
+			"settings":
+			{
+				"buffer_size": 534,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/requests/user_pages_spec.rb",
+			"settings":
+			{
+				"buffer_size": 1103,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/users/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 596,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/shared/_error_messages.html.erb",
+			"settings":
+			{
+				"buffer_size": 306,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "app/views/layouts/application.html.erb",
 			"settings":
 			{
-				"buffer_size": 581,
+				"buffer_size": 670,
 				"line_ending": "Unix"
 			}
 		}
@@ -70,9 +131,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 88.0,
+		"height": 63.0,
 		"selected_items":
 		[
+			[
+				"insta	",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -98,7 +163,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 440.0
+		"width": 368.0
 	},
 	"console":
 	{
@@ -115,18 +180,38 @@
 	},
 	"file_history":
 	[
+		"/C/Sites/rails_projects/sample_app/spec/spec_helper.rb",
+		"/C/Users/nakaue/Dropbox/受検/入試問題/都立武蔵高校付属中/musashi_h24.txt",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/RubyTest/Default (Windows).sublime-keymap",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/RubyTest/Default.sublime-keymap",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/RubyTest.sublime-settings",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Sites/rails_projects/sample_app/app/models/user.rb",
+		"/C/Sites/rails_projects/sample_app/spec/models/user_spec.rb",
+		"/C/Sites/rails_projects/sample_app/app/views/layouts/application.html.erb",
+		"/C/Sites/rails_projects/sample_app/app/helpers/users_helper.rb",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/HTML (Rails).sublime-settings",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Ruby.sublime-settings",
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/RSpec.sublime-settings",
+		"/C/Sites/rails_projects/sample_app/app/views/users/new.html.erb",
+		"/C/Sites/rails_projects/sample_app/spec/factories.rb",
+		"/C/Sites/rails_projects/sample_app/Gemfile",
+		"/C/Sites/rails_projects/sample_app/config/environments/test.rb",
+		"/C/Sites/rails_projects/sample_app/db/schema.rb",
+		"/C/Sites/rails_projects/sample_app/.gitignore",
+		"/C/Sites/rails_projects/sample_app/config/application.rb",
+		"/C/Users/nakaue/Desktop/学校スケジュール.txt",
 		"/C/Users/nakaue/Desktop/学校スケジュール",
 		"/C/Users/nakaue/Pictures/ControlCenter4/Scan/.picasa.ini",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/RubyTest/RubyTest.sublime-settings",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/RubyTest.sublime-settings",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/RSpec.sublime-settings",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
-		"/C/Sites/rails_projects/sample_app/db/schema.rb",
 		"/C/Sites/rails_projects/sample_app/db/migrate/20140320135703_add_index_to_users_email.rb",
 		"/C/Sites/rails_projects/sample_app/app/assets/stylesheets/custom.css.scss",
-		"/C/Sites/rails_projects/sample_app/app/views/layouts/application.html.erb",
 		"/C/Sites/rails_projects/sample_app/app/views/layouts/_header.html.erb",
 		"/C/Sites/rails_projects/sample_app/app/views/layouts/_footer.html.erb",
 		"/C/Sites/rails_projects/sample_app/config/routes.rb",
@@ -137,34 +222,28 @@
 		"/C/Sites/rails_projects/sample_app/app/views/static_pages/home.html.erb",
 		"/C/Sites/rails_projects/sample_app/spec/requests/static_pages_spec.rb",
 		"/C/Sites/rails_projects/sample_app/spec/requests/user_pages_spec.rb",
-		"/C/Sites/rails_projects/sample_app/app/views/users/new.html.erb",
 		"/C/Sites/rails_projects/sample_app/.rspec",
 		"/C/Sites/rails_projects/sample_app/spec/helpers/application_helper_spec.rb",
 		"/C/Sites/rails_projects/sample_app/spec/support/utilities.rb",
 		"/C/Sites/rails_projects/sample_app/log/development.log",
-		"/C/Sites/rails_projects/sample_app/spec/models/user_spec.rb",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Theme - User/My Flatland Dark3.tmTheme",
 		"/C/Users/nakaue/Desktop/ポケモン.txt",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Abacus/Default (Windows).sublime-keymap",
 		"/C/Users/nakaue/Desktop/ポケモン",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Ruby.sublime-settings",
 		"/C/Users/nakaue/Dropbox/backup/Sublime Text 2 - Packages/User/Ruby.sublime-settings",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
 		"/C/Sites/rails_projects/sample_app/app/helpers/application_helper.rb",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Theme - User/My Flatland Dark2.tmTheme",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/ruby_yard_doc.sublime-snippet",
 		"/C/Sites/rails_projects/sample_app/test.rb",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Git/Git.sublime-settings",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/nakaue/Desktop/臨時総会.txt",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
 		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
 		"/C/Sites/rails_projects/sample_app/sample_app.sublime-project",
 		"/C/Sites/rails_projects/sample_app/app/views/layouts/_shim.html.erb",
 		"/C/Sites/rails_projects/sample_app/app/assets/stylesheets/application.css",
-		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
-		"/C/Sites/rails_projects/sample_app/spec/spec_helper.rb"
+		"/C/Users/nakaue/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings"
 	],
 	"find":
 	{
@@ -175,6 +254,8 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"C:\\Sites\\rails_projects\\sample_app",
+			""
 		]
 	},
 	"find_state":
@@ -182,6 +263,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"password_field",
+			"UsersController",
+			"new_user",
+			"user_password",
+			"visit signup_path",
+			"user",
+			"ctrl+alt+a",
+			"ctrl+:",
+			"ctrl+;",
+			"id",
 			"full_title",
 			"all static pages",
 			" '",
@@ -217,30 +308,84 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/models/user.rb",
+					"file": "app/assets/stylesheets/custom.css.scss",
 					"settings":
 					{
-						"buffer_size": 308,
+						"buffer_size": 2318,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								308,
-								308
+								1685,
+								1685
 							]
 						],
 						"settings":
 						{
-							"is_preview": true,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2275.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 1948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1933,
+								1933
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 787.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/users/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								204,
+								204
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -249,25 +394,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "spec/models/user_spec.rb",
+					"buffer": 3,
+					"file": "app/controllers/users_controller.rb",
 					"settings":
 					{
-						"buffer_size": 2362,
+						"buffer_size": 534,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1718,
-								1718
+								371,
+								371
 							]
 						],
 						"settings":
 						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -278,106 +422,111 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/C/Users/nakaue/Desktop/学校スケジュール.txt",
-					"settings":
-					{
-						"buffer_size": 722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Gemfile",
-					"settings":
-					{
-						"buffer_size": 640,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								633,
-								633
-							]
-						],
-						"settings":
-						{
-							"is_preview": true,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 4,
-					"file": "db/schema.rb",
+					"file": "spec/requests/user_pages_spec.rb",
 					"settings":
 					{
-						"buffer_size": 1062,
+						"buffer_size": 1103,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								503,
+								497
 							]
 						],
 						"settings":
 						{
-							"is_preview": true,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/RSpec/RSpec.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": ".gitignore",
+					"file": "app/views/users/new.html.erb",
 					"settings":
 					{
-						"buffer_size": 581,
+						"buffer_size": 596,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								581,
-								581
+								201,
+								201
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/shared/_error_messages.html.erb",
+					"settings":
+					{
+						"buffer_size": 306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								306,
+								306
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -433,6 +582,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"rou",
+				"config/routes.rb"
+			]
 		],
 		"width": 0.0
 	},
@@ -445,7 +598,7 @@
 		"width": 0.0
 	},
 	"show_minimap": false,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 185.0,

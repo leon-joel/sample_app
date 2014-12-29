@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  # get "users/new" # resources :users　を追加すると、これは不要になる。
+
+  resources :users
 
   root  'static_pages#home'
   match '/signup' , to: 'users#new'           , via: 'get'
@@ -20,6 +22,7 @@ SampleApp::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
 
   # Example resource route with options:
   #   resources :products do
