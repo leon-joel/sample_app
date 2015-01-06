@@ -11,6 +11,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }               # DB上には存在しない
   it { should respond_to(:password_confirmation) }  # 同上
+  it { should respond_to(:remember_token) }         # 記憶トークン
   it { should respond_to(:authenticate) }
   
   it { should be_valid }
@@ -97,7 +98,12 @@ describe User do
       @user.email = mixed_case_email
       @user.save
       expect(@user.reload.email).to eql(mixed_case_email.downcase)
-      
     end
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+    it { expect(@user.remember_token).not_to be_blank }
   end
 end

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)   # Rails4.0ではエラーになるようになった ActiveModel::ForbiddenAttributesError
     if @user.save
       # 保存成功の場合
+      sign_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
